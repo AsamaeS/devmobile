@@ -23,14 +23,14 @@ class HomeLayout extends StatelessWidget {
           NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'Dashboard',
           ),
         ],
         onDestinationSelected: (index) {
           if (index == 0) {
             context.go(Routes.searchGuides);
           } else if (index == 1) {
-            context.go(Routes.profile);
+            context.go(Routes.dashboard);
           }
         },
       ),

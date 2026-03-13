@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/features/guides/domain/entities/guide_entity.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_clean_architecture/router/routes.dart';
 
 class GuideDetailsPage extends StatelessWidget {
   final GuideEntity guide;
@@ -208,28 +210,40 @@ class GuideDetailsPage extends StatelessWidget {
             )
           ],
         ),
-        child: SizedBox(
-          width: double.infinity,
-          height: 56,
-          child: ElevatedButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Booking flow coming soon in MVP!')),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: theme.primaryColor,
-              foregroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+        child: Row(
+          children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                onPressed: () {
+                  context.push(Routes.reviews, extra: guide);
+                },
+                icon: const Icon(Icons.star_rounded, color: Colors.amber),
+                label: const Text('Read Reviews'),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                ),
               ),
-              elevation: 4,
             ),
-            child: const Text(
-              'Book Guide',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            const SizedBox(width: 16),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  context.push(Routes.booking, extra: guide);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: theme.primaryColor,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  elevation: 4,
+                ),
+                child: const Text('Book Guide', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

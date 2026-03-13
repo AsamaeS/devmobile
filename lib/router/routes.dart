@@ -13,5 +13,16 @@ abstract final class Routes {
   static const guidesList = '/guides-list';
   static const guideDetails = '/guide-details';
 
+  // Booking & Payment
+  static const booking = '/booking';
+  static const payment = '/payment';
+
+  // Reviews
+  static const reviews = '/reviews';
+  static const addReview = '/add-review';
+
+  // Dashboard
+  static const dashboard = '/dashboard';
+
   // Other feature routes can be added here
 }
