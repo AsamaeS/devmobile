@@ -1,115 +1,145 @@
-# Flutter Clean Architecture Template
+# Tourist Guide Uber-Like Mobile Application
 
-A comprehensive template for Flutter applications following Clean Architecture principles. This template provides a structured foundation with example implementations of each layer.
+A Flutter mobile application that connects tourists with independent local guides.
+The platform follows an **Uber-like service model**, allowing tourists to search for guides based on budget and preferences, book a guide, and complete the service lifecycle.
 
-## 🏗️ Architecture Overview
+This project was developed as part of a **Mobile Development course project** focused on the *Uberisation of a service*.
 
-> **Note:** For small projects or MVPs, implementing this full architecture might be overengineering. Consider a simpler structure if your project has minimal business logic or a small feature set.
+---
 
-The architecture follows Clean Architecture principles with a feature-first organization:
+# 📱 Project Concept
+
+Tourists often struggle to find reliable local guides quickly.
+This application provides a digital marketplace where:
+
+* **Tourists (service beneficiaries)** can find and book guides.
+* **Guides (service providers)** can offer their services and receive booking requests.
+
+The application demonstrates a **Minimum Viable Product (MVP)** capable of validating the business concept.
+
+---
+
+# 🏗️ Architecture
+
+The application is built with **Flutter** and follows **Clean Architecture principles**.
 
 ```text
 lib/
-├── core/               # App-wide utilities, errors, and configurations
-├── features/          # Feature modules following Clean Architecture
-│   └── feature_name/  # e.g., auth, home, etc.
-│       ├── data/      # Data layer (repositories impl, models, data sources)
-│       ├── domain/    # Business logic (entities, repositories, use cases)
-│       └── presentation/ # UI layer (screens, widgets)
-|       |__ providers
-└── shared/           # Shared components across features
+├── core/                # Global utilities, configs and services
+├── features/
+│   ├── auth/            # Authentication feature
+│   ├── guides/          # Tourist guide feature
+│   │   ├── data/        # Mock data sources
+│   │   ├── domain/      # Entities and business models
+│   │   └── presentation/# UI pages and widgets
+│   ├── booking/         # Guide reservation
+│   ├── payment/         # Payment simulation
+│   └── reviews/         # Guide rating system
+└── shared/              # Shared UI components
 ```
 
-### Key Features
+This layered architecture ensures:
 
-- **✨ Complete Clean Architecture Implementation**
+* clear separation of concerns
+* maintainable and scalable code
+* easier future backend integration
 
-  - Clear separation between data, domain, and presentation layers
-  - Example implementations for each architectural component
-  - Proper dependency injection setup
+---
 
-- **🛠️ Modern Flutter Development**
+# 🚀 MVP Features
 
-  - Null safety
-  - Route management with GoRouter
-  - State management with Riverpod
-  - Immutable programming with Freezed
+The current MVP implements the core workflow of an Uber-like service.
 
-- **🧰 Built-in Tools**
-  - Error handling infrastructure
-  - Dependency injection setup
-  - Navigation service
-  - Route guards
+## Tourist (Service Beneficiary)
 
-## 🚀 Getting Started
+* Create account / Login
+* Search for guides
+* Filter by destination, budget, language
+* View guide profiles
+* Book a guide
+* Simulate payment
+* Rate the guide after the service
 
-1. Clone this template
-2. Run `flutter pub get`
-3. Run `flutter pub run build_runner build` to generate code
-4. Start implementing your features following the auth feature example
+## Guide (Service Provider)
 
-## 📚 Template Usage Guide
+* Login
+* Receive booking requests
+* Confirm service completion
+* View earnings (MVP simulation)
 
-### Adding a New Feature
+## Administrator (Future extension)
 
-1. Create a new directory under `lib/features/`
-2. Follow the layer structure:
-   - `domain/` for business logic
-   - `data/` for data handling
-   - `presentation/` for UI
+* Manage guides
+* View registered tourists
+* Monitor system activity
 
-### Implementation Steps
+---
 
-1. **Domain Layer**
+# 🔎 Current User Flow
 
-   - Define entities
-   - Create repository interfaces
-   - Implement use cases
+```text
+Login
+ ↓
+Search Guides
+ ↓
+Guides List
+ ↓
+Guide Details
+ ↓
+Book Guide
+ ↓
+Payment (MVP simulation)
+ ↓
+Service Completion
+ ↓
+Leave Review
+```
 
-2. **Data Layer**
+---
 
-   - Create data models (DTOs)
-   - Implement repositories
-   - Set up data sources
+# 🧰 Technologies Used
 
-3. **Presentation Layer**
-   - Create state management (Riverpod)
-   - Build UI components
-   - Handle navigation
+* **Flutter** – Cross-platform mobile development
+* **Flutter Bloc** – State management
+* **GoRouter** – Navigation and routing
+* Mock data sources for MVP validation
 
-### Example Implementation
+---
 
-The `auth` feature demonstrates:
+# ⚙️ Installation
 
-- Clean Architecture principles
-- Error handling
-- State management
-- Navigation
-- Dependency injection
+Clone the repository:
 
-## 🧪 Testing
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY
+```
 
-The template includes examples of:
+Install dependencies:
 
-- Unit tests for use cases
-- Repository tests
-- Widget tests
-- Integration tests
+```bash
+flutter pub get
+```
 
-## 📦 Recommended Dependencies
+Run the application:
 
-Pre-configured with best-practice packages:
+```bash
+flutter run
+```
 
-- `flutter_riverpod` for state management
-- `freezed` for immutable classes
-- `go_router` for navigation
-- `dartz` for functional programming
-- `dio` for networking
+---
 
-## 🤝 Contributing
+# 📦 Deliverables
 
-Contributions are welcome.
+The final project submission includes:
 
-## 🔗 Social Links
+* Mobile application APK
+* Hosted web version (optional)
+* Public GitHub repository
+* Demonstration video
+* Project report explaining design choices
 
-[![_](https://img.shields.io/badge/-%23000000.svg?style=for-the-badge&logo=X)](https://x.com/heygourab) @heygourab
+---
+
+# 🎯 Project Goal
+
+The goal of this project is to demonstrate how **digital platforms can "Uberize" traditional services**, in this case **local tourism guiding**, by enabling direct interaction between tourists and independent guides through a centralized mobile application.
