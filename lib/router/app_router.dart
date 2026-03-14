@@ -21,10 +21,10 @@ import 'package:go_router/go_router.dart';
 final class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
-  static GoRouter get router => GoRouter(
+  static final GoRouter router = GoRouter(
         navigatorKey: _rootNavigatorKey,
-        initialLocation: Routes.splash,
-        redirect: AuthGuard.guard,
+        initialLocation: Routes.home,
+        // redirect: AuthGuard.guard,
         routes: [
           // Splash Route
           GoRoute(
